@@ -1,2 +1,10 @@
-<h1>Recipes#index</h1>
-<p>Find me in app/views/recipes/index.html.erb</p>
+<table>
+    <th>Title</th>
+
+<% @recipes.each do |recipe|%>
+<tr>
+<td><%= link_to recipe.title, recipe.href %></td>
+</tr>
+<% end %>
+
+</table>
