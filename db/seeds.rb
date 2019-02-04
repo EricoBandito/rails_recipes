@@ -5,3 +5,18 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'net/http'
+require 'json'
+
+url = "http://www.recipepuppy.com/api/"
+uri = URI(url)
+response = Net::HTTP.get(uri)
+data = JSON.parse(response)['results']
+
+puts pp(data)
+
+data.each do |recipe|
+    puts recipe['title']
+end
+
