@@ -16,7 +16,10 @@ data = JSON.parse(response)['results']
 
 puts pp(data)
 
+Recipe.destroy_all
+
 data.each do |recipe|
-    puts recipe['title']
+    Recipe.create(title: recipe['title'],
+                  href: recipe['href'])
 end
 
