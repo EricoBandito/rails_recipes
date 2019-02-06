@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get 'recipes/index'
-  get 'recipes/show'
+
+  resources :recipes, only: [:index, :show]
 
   root to: 'recipes#index'
 end
