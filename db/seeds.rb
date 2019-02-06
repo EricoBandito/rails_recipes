@@ -14,12 +14,13 @@ uri = URI(url)
 response = Net::HTTP.get(uri)
 data = JSON.parse(response)['results']
 
-puts pp(data)
+# puts pp(data)
 
 Recipe.destroy_all
 
 data.each do |recipe|
     Recipe.create(title: recipe['title'],
-                  href: recipe['href'])
+                  href: recipe['href'],
+                  thumbnail: recipe['thumbnail'])
 end
 
