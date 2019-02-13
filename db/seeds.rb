@@ -18,9 +18,27 @@ data = JSON.parse(response)['results']
 
 Recipe.destroy_all
 
-data.each do |recipe|
-    Recipe.create(title: recipe['title'],
-                  href: recipe['href'],
-                  thumbnail: recipe['thumbnail'])
+data.each do |json_recipe|
+    recipe = Recipe.create(title: json_recipe['title'],
+                  href: json_recipe['href'],
+                  thumbnail: json_recipe['thumbnail'])
+
+
+    ingredient_array = json_recipe['ingredients'].split(',')
+    ingredient_array.each do |ingredient|
+
+        if Ingredient.exists?(:name => ingredient)
+            ingredient_id = david = Ingredient.find_by(name: ingredient).id
+            RecipeIngredient.create(recipe_id: recipe.id,
+                                    ingredient_id: ingredient_id)
+
+        else
+            ingredient = Ingredient.create(name: ingredient)
+            RecipeIngredient.create(recipe_id: recipe.id,
+                                    ingredient_id: ingredient.id)
+        end
+    end
+
+
 end
 
