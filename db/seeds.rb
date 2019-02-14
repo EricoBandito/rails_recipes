@@ -38,7 +38,26 @@ data.each do |json_recipe|
                                     ingredient_id: ingredient.id)
         end
     end
+end
 
+200.times do
+    recipe = Recipe.create(title: Faker::Food.dish,
+                           href: 'https://www.allrecipes.com/recipe/90236/ginger-champagne/',
+                           thumbnail: '')
 
+    2..6.times do
+        ingredient = Faker::Food.ingredient
+
+        if Ingredient.exists?(:name => ingredient)
+            ingredient_id  = Ingredient.find_by(name: ingredient).id
+            RecipeIngredient.create(recipe_id: recipe.id,
+                                    ingredient_id: ingredient_id)
+        else
+            ingredient = Ingredient.create(name: ingredient)
+            RecipeIngredient.create(recipe_id: recipe.id,
+                                    ingredient_id: ingredient.id)
+        end
+
+    end
 end
 
