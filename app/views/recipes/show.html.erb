@@ -1,9 +1,19 @@
 <h2><%= @recipe.title %></h2>
 
 <div class="flex-container">
-    <img style="width:30%;" src="<%= @recipe.thumbnail %>"/>
+    <% if @recipe.thumbnail == '' %>
+        <%= image_tag "no_image.png", :class => "recipe_image" %>
+    <% else %>
+        <img class="recipe_image" src="<%= @recipe.thumbnail %>"/>
+    <% end %>
     <div style="display:inline;"/>
         test123
     </div>
 </div>
 <h3><%= link_to "View Full Recipe", @recipe.href %></h3>
+
+<style>
+   .recipe_image {
+       width: 30%;
+   }
+</style>
