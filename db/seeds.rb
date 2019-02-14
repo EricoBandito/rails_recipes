@@ -14,7 +14,7 @@ uri = URI(url)
 response = Net::HTTP.get(uri)
 data = JSON.parse(response)['results']
 
-# puts pp(data)
+puts pp(data)
 
 Recipe.destroy_all
 
@@ -28,7 +28,7 @@ data.each do |json_recipe|
     ingredient_array.each do |ingredient|
 
         if Ingredient.exists?(:name => ingredient)
-            ingredient_id = david = Ingredient.find_by(name: ingredient).id
+            ingredient_id  = Ingredient.find_by(name: ingredient).id
             RecipeIngredient.create(recipe_id: recipe.id,
                                     ingredient_id: ingredient_id)
 
