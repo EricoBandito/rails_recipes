@@ -1,9 +1,11 @@
 <div id="container">
+    <h3><%= link_to "About", "pages/about" %></h3>
     <h1>Food</h1>
     <% @recipes.each do |recipe|%>
     <div class="card">
         <img style="width:100%;" src="<%= recipe.thumbnail %>"/>
         <h3><%= link_to recipe.title, recipe %></h3>
+
     </div>
 
     <% end %>

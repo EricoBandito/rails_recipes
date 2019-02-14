@@ -1,0 +1,67 @@
+<h1>About</h1>
+
+<h3>Data</h3>
+<p>For this project I am using the Recipes by Ingredient API. The data is stored in json format. The data includes arrays of recipes with the following data.</p>
+<ul>
+    <li>Title</li>
+    <li>Href</li>
+    <li>Ingredients (array)</li>
+    <li>Thumbail</li>
+</ul>
+<h3>Tables</h3>
+<h5>Recipe</h5>
+    <ul>
+        <li>Id</li>
+        <li>Title</li>
+        <li>Href</li>
+        <li>Thumbnail</li>
+        <li>created_at</li>
+        <li>updated_at</li>
+    </ul>
+<h5>RecipeIngredient</h5>
+    <ul>
+        <li>Id</li>
+        <li>recipe_id</li>
+        <li>ingredient_id</li>
+        <li>created_at</li>
+        <li>updated_at</li>
+    </ul>
+<h5>Ingredient</h5>
+    <ul>
+        <li>Id</li>
+        <li>Name</li>
+        <li>created_at</li>
+        <li>updated_at</li>
+    </ul>
+
+<h3>Usage</h3>
+<p>I plan to show a list of recipes as a landing page. Once clicked on a recipe, you can then see the different ingredient, and have a link to the actual recipe.</p>
+<h3 style="margin-top:40px;">ERD</h3>
+<%= image_tag "erd.PNG" %>
+
+<%# Data
+For this project I am using the Recipes by Ingredient API.
+The data is stored in json format.
+The data includes arrays of recipes with the following data.
+•	Title
+•	Href
+•	Ingredients (array)
+•	Thumbnail
+Tables
+Recipe
+•	Id (integer)
+•	Title (string)
+•	Thumbnail (string)
+•	Timestamps
+RecipeIngredient
+•	Id (integer)
+•	Recipe_id (integer) FK
+•	Ingredient_id (integer) FK
+•	timestamps
+Ingredient
+•	Id (integer)
+•	Name (string)
+•	timestamps
+Usage
+I plan to show a list of recipes as a landing page. Once clicked on a recipe, you can then see the different ingredient, and have a link to the actual recipe.
+> %>
