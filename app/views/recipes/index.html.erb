@@ -1,6 +1,12 @@
 <div id="container">
-    <h3><%= link_to "About", "pages/about" %></h3>
+
     <h1>Food</h1>
+    <div style="margin-bottom: 16px;">
+        <form action="/action_page.php">
+        <input type="text" placeholder="Search.." name="search">
+        <button type="submit"/>
+        </form>
+    </div>
     <% @recipes.each do |recipe|%>
     <div class="card">
         <% if recipe.thumbnail == ''%>
