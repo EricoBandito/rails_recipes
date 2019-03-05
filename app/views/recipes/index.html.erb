@@ -4,9 +4,9 @@
     <% @recipes.each do |recipe|%>
     <div class="card">
         <% if recipe.thumbnail == ''%>
-            <%= image_tag "no_image.png" %>
+            <%= image_tag "no_image.png", alt: recipe.title %>
         <% else %>
-            <img style="width:100%;" src="<%= recipe.thumbnail %>"/>
+            <img style="width:100%;" alt="<%= recipe.title %>" src="<%= recipe.thumbnail %>"/>
         <% end %>
         <h3><%= link_to recipe.title, recipe %></h3>
 
@@ -15,14 +15,3 @@
     <% end %>
 </div>
 
-<style>
-
-#container {
-    padding: 16px;
-}
-.card {
-    width: 20%;
-    display: inline-block;
-}
-
-</style>

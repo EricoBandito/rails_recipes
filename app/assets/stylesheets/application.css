@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+ #container {
+    padding: 16px;
+}
+.card {
+    width: 20%;
+    display: inline-block;
+}
